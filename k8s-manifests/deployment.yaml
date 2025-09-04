@@ -5,16 +5,19 @@ metadata:
   name: harness-demo-app
 spec:
   replicas: 3
+  # This is the key change: use the Harness expression for the selector and template labels
   selector:
     matchLabels:
       app: harness-demo-app
+      harness.io/track: <+service.artifact.tag>
   template:
     metadata:
       labels:
         app: harness-demo-app
+        harness.io/track: <+service.artifact.tag>
     spec:
       containers:
       - name: harness-demo-app
-        image: ganesh243/harness-demo-app:1.0.0 # This will be managed by Harness CI/CD
+        image: ganesh243/harness-demo-app:<+service.artifact.tag>
         ports:
         - containerPort: 8080
