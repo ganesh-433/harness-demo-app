@@ -1,0 +1,3 @@
+# k8s-manifests/values.yaml
+image:
+  tag: 1.0.0
