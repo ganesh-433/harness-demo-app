@@ -1,4 +1,4 @@
-// main.go
+// main.go (for Canary Version)
 package main
 
 import (
@@ -7,9 +7,11 @@ import (
 	"os"
 )
 
+var version = "2.0.0"
+
 func handler(w http.ResponseWriter, r *http.Request) {
 	hostname, _ := os.Hostname()
-	fmt.Fprintf(w, "Hello, Stable Version! I'm version 1.0.0 on host %s\n", hostname)
+	fmt.Fprintf(w, "Hello, Canary! I'm version %s on host %s\n", version, hostname)
 }
 
 func main() {
